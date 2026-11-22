@@ -734,6 +734,144 @@ button {
     transform: translateY(0);
 }
 
+
+/* ==========================
+   THEME TOGGLE BUTTON
+========================== */
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.theme-toggle {
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--border);
+    background: var(--peach);
+    color: var(--brown);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.theme-toggle:hover {
+    background: var(--peach-dark);
+    transform: rotate(15deg);
+}
+
+/* ==========================
+   DARK MODE COLORS
+========================== */
+
+body.dark-mode {
+    --cream: #211C1A;
+    --white: #2D2522;
+    --peach: #49332D;
+    --peach-dark: #65473D;
+    --terracotta: #E5A18A;
+    --terracotta-dark: #F0B59E;
+    --brown: #F5E5DD;
+    --text: #D1BEB4;
+    --muted: #AE978B;
+    --border: #493832;
+
+    --shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+}
+
+/* Smooth color transitions */
+
+body,
+.header,
+.nav-links,
+.skill-card,
+.project-card,
+.timeline-content,
+.contact-box,
+.footer {
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease;
+}
+
+/* Header */
+
+body.dark-mode .header {
+    background: rgba(33, 28, 26, 0.95);
+    border-bottom-color: var(--border);
+}
+
+body.dark-mode .nav-links {
+    background-color: var(--cream);
+}
+
+/* Hero */
+
+body.dark-mode .hero {
+    background:
+        radial-gradient(circle at 85% 20%, #49332D 0%, transparent 30%),
+        var(--cream);
+}
+
+body.dark-mode .image-caption {
+    background: #382D29;
+    color: var(--brown);
+}
+
+/* About */
+
+body.dark-mode .about,
+body.dark-mode .projects,
+body.dark-mode .contact {
+    background: #292220;
+}
+
+/* Cards */
+
+body.dark-mode .skill-card,
+body.dark-mode .project-card,
+body.dark-mode .timeline-content {
+    background: #302724;
+    border-color: var(--border);
+}
+
+/* Contact */
+
+body.dark-mode .contact-box {
+    background:
+        radial-gradient(circle at 90% 10%, #65473D 0%, transparent 35%),
+        #49332D;
+}
+
+/* Footer */
+
+body.dark-mode .footer {
+    background: #171312;
+}
+
+/* Theme button */
+
+body.dark-mode .theme-toggle {
+    background: #49332D;
+    color: #FFE5D4;
+    border-color: #65473D;
+}
+
+/* Mobile navigation */
+
+@media (max-width: 768px) {
+    .nav-actions {
+        margin-left: auto;
+        margin-right: 15px;
+    }
+}
+
+
 /* ==========================
    RESPONSIVE DESIGN
 ========================== */
@@ -966,3 +1104,5 @@ button {
         transform: none;
     }
 }
+
+

@@ -105,6 +105,55 @@ sections.forEach((section) => {
 
 
 // ==========================
+// DARK MODE TOGGLE
+// ==========================
+
+const themeToggle = document.getElementById("theme-toggle");
+const themeIcon = themeToggle.querySelector("i");
+
+// Load previously selected theme
+
+const savedTheme = localStorage.getItem("portfolio-theme");
+
+if (savedTheme === "dark") {
+    document.body.classList.add("dark-mode");
+}
+
+// Update theme icon
+
+function updateThemeIcon() {
+    const isDark = document.body.classList.contains("dark-mode");
+
+    themeIcon.className = isDark
+        ? "fas fa-sun"
+        : "fas fa-moon";
+
+    themeToggle.setAttribute(
+        "aria-label",
+        isDark ? "Switch to light mode" : "Switch to dark mode"
+    );
+}
+
+updateThemeIcon();
+
+// Toggle theme
+
+themeToggle.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+
+    const isDark = document.body.classList.contains("dark-mode");
+
+    localStorage.setItem(
+        "portfolio-theme",
+        isDark ? "dark" : "light"
+    );
+
+    updateThemeIcon();
+});
+
+
+
+// ==========================
 // AUTOMATIC COPYRIGHT YEAR
 // ==========================
 
